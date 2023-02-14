@@ -29,4 +29,9 @@ public class Timer
 	{
 		_timer = _timer + timeToAdd;
 	}
+
+	public string GetTime()
+	{
+		return Mathf.Ceil(_timer).ToString("N0");
+	}
 }

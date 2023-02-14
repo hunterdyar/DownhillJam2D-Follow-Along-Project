@@ -14,6 +14,7 @@ public class RaceManager : MonoBehaviour
     private void Awake()
     {
         _raceState = RaceState.Countdown;
+        _timer = new Timer();
     }
 
     void Start()
@@ -23,11 +24,10 @@ public class RaceManager : MonoBehaviour
     
     void StartRace()
     {
-        _timer = new Timer();
         _raceState = RaceState.Racing;
         _timer.InitiateTimer(startTime);
     }
-
+    
     void Update()
     {
         //if the game is in gameplay state...
@@ -62,5 +62,15 @@ public class RaceManager : MonoBehaviour
     {
         Debug.Log("We win!");
         _raceState = RaceState.Won;
+    }
+
+    public Timer GetRaceTimer()
+    {
+        return _timer;
+    }
+
+    public RaceState GetRaceState()
+    {
+        return _raceState;
     }
 }
